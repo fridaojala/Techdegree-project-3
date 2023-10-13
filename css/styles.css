@@ -4,14 +4,26 @@
 }
 
 body {
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Merriweather', serif;
     margin: 0;
 }
 
-.container {
+.wrapper {
+    width: 100%;
+    background-color: rgba(45, 57, 69, .05);
+    padding-top: 1rem;
+    border-radius: 5px;
+}
+
+.header-container,
+.main-container {
     width: 90%;
     margin: 0 auto;
+}
+
+.header-container {
+    margin-bottom: 1.5rem;
 }
 
 /*Header styles*/
@@ -32,19 +44,23 @@ header h1 {
 /*Main styles*/
 section {
     text-align: center;
-    border-bottom: solid 4px #2d3945;
-    padding-bottom: 2em;
+}
+
+.double-line {
+    margin: 2.5em 0 .5em;
+    height: 8px;
+    border-top: solid 4px #2d3945;
+    border-bottom: solid 2px #2d3945;
 }
 
 section h2 {
     font-size: 1.25rem;
     color: #2d3945;
-    padding: 1em 0 .5em;
+    padding: 1em 0 0;
 }
 
 p {
     color: #8f8f8f;
-    font-size: 14px;
 }
 
 /*Form styles*/
@@ -60,7 +76,7 @@ fieldset {
 legend {
     font-size: 1.25rem;
     color: #2d3945;
-    padding: 1em 0;
+    padding: .5rem 0;
     font-weight: bold;
 }
 
@@ -75,7 +91,7 @@ input[type="email"],
 input[type="tel"],
 select,
 textarea {
-    background-color: #eff0f1;
+    background-color: #fff;
     border: none;
     padding: 1rem;
     border-radius: 5px;
@@ -87,15 +103,18 @@ textarea:focus-visible {
     outline: none;
 }
 
-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
 select:focus,
 textarea:focus {
     outline: 2px solid #2d3945;
+    transition: background-color 1s ease;
+    background-color: rgba(45, 57, 69, .05);
 }
 
 label {
     color: #8f8f8f;
-    font-size: 14px;
     padding-bottom: 1em;
 }
 
@@ -103,14 +122,18 @@ label {
     font-family: 'Merriweather', serif;
     font-style: italic;
     text-align: right;
-    font-size: 12px;
+    font-size: .9em;
     color: #8f8f8f;
+}
+
+input[id="zip"]::placeholder,
+textarea::placeholder {
+    text-align: left;
 }
 
 select {
     font-family: 'Merriweather', serif;
     color: #8f8f8f;
-    font-size: 14px;
     max-height: 48px;
 }
 
@@ -121,6 +144,7 @@ select {
 .border {
     border-bottom: 2px solid #2d3945;
     padding: 0 0 2em 0;
+    margin-bottom: 1em;
 }
 
 input[type="checkbox"],
@@ -130,4 +154,74 @@ input[type="radio"] {
 
 .format-container {
     padding: 20px 0;
+}
+
+textarea {
+    margin-top: 1em;
+    width: 100%;
+    min-height: 100px;
+}
+
+button {
+    width: 100%;
+    background-color: #4ebbb5;
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 5px;
+    padding: .8em;
+    margin: 1.5rem 2px 1rem;
+}
+
+/*Footer styles*/
+footer {
+    font-style: italic;
+    text-align: center;
+    font-size: .9em;
+    padding: .5rem 0 10rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .header-container {
+        width: 72%;
+    }
+
+    .main-container {
+        width: 80%;
+    }
+
+    .flex {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .flex label {
+        padding-bottom: 0;
+    }
+
+    .flex input,
+    .flex select {
+        width: 70%;
+    }
+
+    .zip-input {
+        width: 70%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .zip-container {
+        max-width: 30%;
+    }
 }
